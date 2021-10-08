@@ -43,13 +43,13 @@ export default {
   methods:{
     getStudents(){
       studentService.getStudents().then((response) => {
-        console.warn(response);
         this.students = response.data;
       });
     },
 
-    deleteStudent(id){
-      studentService.deleteStudent(id);
+    async deleteStudent(id){
+      await studentService.deleteStudent(id);
+      this.getStudents();
     }
   },
   created(){

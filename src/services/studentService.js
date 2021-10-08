@@ -4,17 +4,11 @@ const STUDENT_API_BASE_url = 'http://localhost:8080/api/v1/student'
 
 class studentService {
     getStudents() {
-        axios.get(STUDENT_API_BASE_url).then(res => {
-            console.log(res);
-        });
-
         return axios.get(STUDENT_API_BASE_url);
     }
 
     getStudentByID(id){
-        axios.get(STUDENT_API_BASE_url+"/"+id).then(res=>{
-            console.log(res);
-        })
+        return axios.get(STUDENT_API_BASE_url+"/"+id);
     }
 
     deleteStudent(id) {
@@ -25,12 +19,6 @@ class studentService {
                 }
             }
         );
-
-        /*
-        await axios.delete("http://localhost:8080/api/v1/student/"+id).then(response =>{
-            console.log(response);
-        });
-         */
     }
 
     addStudent(student){
